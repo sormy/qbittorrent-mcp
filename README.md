@@ -52,3 +52,16 @@ qBittorrent MCP 是一个基于 FastMCP 的服务，提供了与 qBittorrent Web
 服务分为两个主要文件：
 - `main.py`: 定义MCP服务接口和配置参数
 - `api.py`: 实现与qBittorrent WebUI的交互逻辑
+```json
+   "mcp_servers": [
+        {
+            "command": "uv",
+            "args": [
+                "--directory",
+                "/workspace/PC-Canary/apps/qBittorrent/qbittorrent_mcp",
+                "run",
+                "qbittorrent.py"
+            ]
+        }
+    ]
+```

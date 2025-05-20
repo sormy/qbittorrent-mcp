@@ -71,7 +71,7 @@ async def pause_torrent(hashes: str) -> str:
     Returns:
         暂停操作的结果消息
     """
-    return await pause_torrent_api(hashes)
+    return await pause_torrent_api(hashes, DEFAULT_HOST, DEFAULT_USERNAME, DEFAULT_PASSWORD)
 
 @app.tool()
 async def resume_torrent(hashes: str) -> str:
@@ -84,7 +84,7 @@ async def resume_torrent(hashes: str) -> str:
     Returns:
         恢复操作的结果消息
     """
-    return await resume_torrent_api(hashes)
+    return await resume_torrent_api(hashes, DEFAULT_HOST, DEFAULT_USERNAME, DEFAULT_PASSWORD)
 
 @app.tool()
 async def get_torrent_trackers(hash: str) -> str:
@@ -97,7 +97,7 @@ async def get_torrent_trackers(hash: str) -> str:
     Returns:
         包含跟踪器信息的字符串
     """
-    return await get_torrent_trackers_urls(hash)
+    return await get_torrent_trackers_urls(hash, DEFAULT_HOST, DEFAULT_USERNAME, DEFAULT_PASSWORD)
 
 @app.tool()
 async def set_global_download_limit(limit: int) -> str:
@@ -160,7 +160,7 @@ async def set_file_priority(hash: str, id: str, priority: int) -> str:
         409	At least one file id was not found
         200	All other scenarios
     """ 
-    return await set_file_priority_api(hash, id, priority)
+    return await set_file_priority_api(hash, id, priority, DEFAULT_HOST, DEFAULT_USERNAME, DEFAULT_PASSWORD)
 
 @app.tool()
 async def set_torrent_download_limit(hash: str, limit: int) -> str:
@@ -174,7 +174,7 @@ async def set_torrent_download_limit(hash: str, limit: int) -> str:
     Returns:
         设置种子下载限速的结果消息
     """
-    return await set_torrent_download_limit_api(hash, limit)
+    return await set_torrent_download_limit_api(hash, limit, DEFAULT_HOST, DEFAULT_USERNAME, DEFAULT_PASSWORD)
 
 @app.tool()
 async def set_torrent_upload_limit(hash: str, limit: int) -> str:
@@ -188,7 +188,7 @@ async def set_torrent_upload_limit(hash: str, limit: int) -> str:
     Returns:
         设置种子上传限速的结果消息
     """ 
-    return await set_torrent_upload_limit_api(hash, limit)
+    return await set_torrent_upload_limit_api(hash, limit, DEFAULT_HOST, DEFAULT_USERNAME, DEFAULT_PASSWORD)
 
 @app.tool()
 async def add_trackers_to_torrent(hash: str, trackers: str) -> str:
@@ -202,7 +202,7 @@ async def add_trackers_to_torrent(hash: str, trackers: str) -> str:
     Returns:
         添加跟踪器的结果消息 
     """
-    return await add_trackers_to_torrent_api(hash, trackers)
+    return await add_trackers_to_torrent_api(hash, trackers, DEFAULT_HOST, DEFAULT_USERNAME, DEFAULT_PASSWORD)
 
 @app.tool()
 async def add_torrent_tags(hash: str, tags: str) -> str:
@@ -216,14 +216,14 @@ async def add_torrent_tags(hash: str, tags: str) -> str:
     Returns:
         添加种子标签的结果消息
     """
-    return await add_torrent_tags_api(hash, tags)
+    return await add_torrent_tags_api(hash, tags, DEFAULT_HOST, DEFAULT_USERNAME, DEFAULT_PASSWORD)
 
 @app.tool()
 async def get_torrent_list() -> str:
     """
     获取种子列表
     """
-    return await get_torrent_list_api()
+    return await get_torrent_list_api(host=DEFAULT_HOST, username=DEFAULT_USERNAME, password=DEFAULT_PASSWORD)
 
 if __name__ == "__main__":
     app.run(transport='stdio')

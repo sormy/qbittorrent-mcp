@@ -23,9 +23,9 @@ from api import (
 )
 
 # 定义关键参数
-DEFAULT_HOST = 'http://10.161.28.28:8080'
+DEFAULT_HOST = 'http://127.0.0.1:8080'
 DEFAULT_USERNAME = 'admin'
-DEFAULT_PASSWORD = 'mima123'
+DEFAULT_PASSWORD = 'adminadmin'
 
 # 初始化 FastMCP 服务器
 app = FastMCP('qbittorrent')
